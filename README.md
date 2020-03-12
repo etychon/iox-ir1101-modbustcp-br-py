@@ -1,24 +1,24 @@
-# Project Title
+# Cisco IOx application example to use Modbus TCP on a Cisco IR1101 with Python
 
-Put a meaningful, short, plain-language description of what this code is trying to accomplish, what is the business driver for implementation, and in general why it matters.
+The purpose of this sample code is to showcase how you can very simply access Modbus TCP Programmable Logic Controllers (PLC) from a Python 3 environment and run it on Cisco IOx.
 
-Pro tips:
+Our aim in this case is simply to trigger a few Modbus coil registers on and off and have some fun doing the visual effect of Kitt in Knight Rider, on a PLC!
 
-* Code Exchange displays the first few content lines of your README in the tile it creates for your repo. If you enter a GitHub Description, Code Exchange uses that instead.
-* Code Exchange works best with READMEs formatted in [GitHub's flavor of Markdown](https://guides.github.com/features/mastering-markdown/). Support for reStructuredText is a work in progress.
+Cisco IOx is an execution and hosting environment and in this case we will build an application package for the Cisco IR1101 which is a ARM-based platform. For this reason we will need to include QEMU for cross-compilation on an Intel x86_64 platform. For more information on how to set-up your machine check "[Build and Deploy a Docker IOx Package for the IR1101 ARM Architecture](https://www.cisco.com/c/en/us/support/docs/routers/1101-industrial-integrated-services-router/214383-build-and-deploy-a-docker-iox-package-fo.html)".
 
-Other things you might include:
+This sample is using Python 3 along with the [pyModbusTCP](https://github.com/sourceperl/pyModbusTCP) library which is an extremely compact implementation.
 
-* Technology stack: Indicate the technological nature of the code, including primary programming language(s) and whether the code is intended as standalone or as a module in a framework or other ecosystem.
-* Status:  Alpha, Beta, 1.1, etc. It's OK to write a sentence, too. The goal is to let interested people know where what they can expect from this code.
-* Screenshot: If the code has visual components, place a screenshot after the description; e.g.,
-
-![add-image-here]()
-
+![Kitt](http://i.imgur.com/wT6OZEe.gif)
 
 ## Use Case Description
 
-Describe the problem this code addresses, how your code solves the problem, challenges you had to overcome as part of the solution, and optional ideas you have in mind that could further extend your solution.
+In this code sample we are going to simulate Kitt, with the back and forth light flashing on a PLC. This is not very useful per se, however the purpose is to show how to set this up so you can embark on much more useful use cases.
+
+## Prerequisites
+
+* You need a PLC or anything that can act as a Modbus Master. In this case I have used a PLC from [B&R](https://www.br-automation.com/en/) which provides Modbus TCP data. Note that this PLC requires [programming the Modbus table with B&R "Automation Studio"](https://www.youtube.com/watch?v=L-oFOQl-hBM&t=217s), and once this step is done then you can view the Modbus registers to use.
+* You need a device with Cisco IOx. In this case I have used a Cisco Industrial Router IR1101, but you could also use Cisco Industrial Ethernet IE3400 with minimal or no change. The gateway need to be configured to give access to your containers to the local network or wherever is your PLC.
+* You need a build machine with internet access and Docker, ioxclient, and git.
 
 ## Installation
 
