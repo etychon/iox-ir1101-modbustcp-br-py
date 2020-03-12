@@ -1,4 +1,8 @@
-FROM python:3.8.0-slim
+FROM multiarch/qemu-user-static:x86_64-aarch64 as qemu
+FROM arm64v8/python:3.7-slim-stretch
+
+COPY --from=qemu /usr/bin/qemu-aarch64-static /usr/bin
+
 COPY . .
 RUN apt-get update \
 	&& apt-get clean

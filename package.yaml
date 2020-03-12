@@ -1,0 +1,17 @@
+descriptor-schema-version: "2.6"
+info:
+  name: iox-ir1101-modbustcp-br-py
+  version: latest
+app:
+  cpuarch: aarch64
+  resources:
+    network:
+    - interface-name: eth0
+      ports: {}
+    profile: c1.tiny
+  startup:
+    rootfs: rootfs.tar
+    target:
+    - python
+    - start.py
+  type: docker
