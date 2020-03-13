@@ -157,22 +157,4 @@ Once a repo has been created, you can easily add a LICENSE file through the GitH
 
 Once you have created the LICENSE file, be sure to update/replace any templated fields with appropriate information, including the Copyright. For example, the [3-Clause BSD license template](https://opensource.org/licenses/BSD-3-Clause) has the following copyright notice:
 
-`Copyright (c) <YEAR>, <COPYRIGHT HOLDER>`
-
-See the [LICENSE](./LICENSE) for this template repo as an example.
-
-Once your LICENSE file exists, you can delete this section of the README, or replace the instructions in this section with a statement of which license you selected and a link to your license file, e.g.
-
-This code is licensed under the BSD 3-Clause License. See [LICENSE](./LICENSE) for details.
-
-Some licenses, such as Apache 2.0 and GPL v3, do not include a copyright notice in the [LICENSE](./LICENSE) itself. In such cases, a NOTICE file is a common place to include a copyright notice. For a very simple example, see [NOTICE](./NOTICE).
-
-In the event you make use of 3rd party code, it is required by some licenses, and a good practice in all cases, to provide attribution for all such 3rd party code in your NOTICE file. For a great example, see [https://github.com/cisco/ChezScheme/blob/master/NOTICE](https://github.com/cisco/ChezScheme/blob/master/NOTICE).   
-
-----
-
-## Credits and references
-
-1. Projects that inspired you
-2. Related projects
-3. Books, papers, talks, or other sources that have meaningful impact or influence on this code
+Copyright (c) 2020 Cisco Systems, Inc. and/or its affiliates
