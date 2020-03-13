@@ -104,6 +104,8 @@ Similarly you can validate that the image runs well as a Docker container with:
 
   `docker run iox-ir1101-modbustcp-br-py`
 
+Note that when you run the `start.py` script it runs with your local x86 Python interpreter, whereas in the Docker container it runs as an emulated ARM Python interpreter. This abstraction is provided in the container by [QEMU](https://www.qemu.org/).
+
 Now is the time to package this image as an IOx application using Cisco ioxclient utility, which takes additional information from the resource descriptor file `package.yaml`. This file describes the target architecture, network and resource requirements, description and version.
 
 `ioxclient docker package iox-ir1101-modbustcp-br-py . -n iox-ir1101-modbustcp-br-py --use-targz`
@@ -112,31 +114,21 @@ Your Cisco IOx application is now in the current directory and called `iox-ir110
 
 ## Usage
 
+Log in to the [IR1101 Local Manager WebUI](https://www.cisco.com/c/en/us/td/docs/routers/access/1101/software/configuration/guide/b_IR1101config/b_IR1101config_chapter_010001.html#con_998650) by logging in to the main router WebUI, then navigate to Configuration > Services > IOx to log in to the Cisco IOx Local Manager which is using the same credentials as the main router WebUI.
 
+Deploy the application like so:
 
-Show users how to use the code. Be specific.
-Use appropriate formatting when showing code snippets or command line output.
+![iox-deploy](images/IOx-deploy-app.gif)
 
-### DevNet Sandbox
+Then activate and optionally configure IP address like so:
 
-A great way to make your repo easy for others to use is to provide a link to a [DevNet Sandbox](https://developer.cisco.com/site/sandbox/) that provides a network or other resources required to use this code. In addition to identifying an appropriate sandbox, be sure to provide instructions and any configuration necessary to run your code with the sandbox.
+![activate and start](images/iox-activate-start.gif)
 
-## How to test the software
+Your application is now running in Cisco IOx and you should see your PLC running Kitt's Knight Rider effect. Here's how it looks like on mine:
 
-Provide details on steps to test, versions of components/dependencies against which code was tested, date the code was last tested, etc.
-If the repo includes automated tests, detail how to run those tests.
-If the repo is instrumented with a continuous testing framework, that is even better.
-
-
-## Known issues
-
-Document any significant shortcomings with the code. If using [GitHub Issues](https://help.github.com/en/articles/about-issues) to track issues, make that known and provide any templates or conventions to be followed when opening a new issue.
+![running](images/PCL-running-knight-rider.gif)
 
 ## Getting help
-
-Instruct users how to get help with this code; this might include links to an issues list, wiki, mailing list, etc.
-
-**Example**
 
 If you have questions, concerns, bug reports, etc., please create an issue against this repository.
 
